@@ -6,7 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Prog on 03.02.2017.
+ * Robot's control panel
+ *
+ * @author Kirill Ivanov
  */
 public class ControlPanel extends JFrame implements ActionListener{
 
@@ -18,7 +20,7 @@ public class ControlPanel extends JFrame implements ActionListener{
         this.robot = robot;
 
         setSize(800, 600);
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
         JButton addButton = new JButton("Add leg");

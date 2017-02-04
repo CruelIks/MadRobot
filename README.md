@@ -7,14 +7,14 @@
  - The steps should be done in the same order, as legs are defined, e.g.
 
     OK:
-    Robot moved with leg 1
-    Robot moved with leg 2
-    Robot moved with leg 3
+    - Robot moved with leg 1
+    - Robot moved with leg 2
+    - Robot moved with leg 3
 
     NOK:
-    Robot moved with leg 1
-    Robot moved with leg 3
-    Robot moved with leg 2
+    - Robot moved with leg 1
+    - Robot moved with leg 3
+    - Robot moved with leg 2
 
  - The robot should have the distance counter. Each step should update the counter and once the distance
    is reached, the program should exit and print the number of steps done

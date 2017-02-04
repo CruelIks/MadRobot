@@ -3,7 +3,9 @@ package com.iks;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Prog on 03.02.2017.
+ * Robot's leg
+ *
+ * @author Kirill Ivanov
  */
 public class Leg implements Runnable {
 

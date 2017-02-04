@@ -8,7 +8,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by Prog on 03.02.2017.
+ * Simple robot
+ *
+ * @author Kirill Ivanov
  */
 public class Robot extends Thread {
 
@@ -17,7 +19,7 @@ public class Robot extends Thread {
     private final LinkedBlockingQueue<Leg> legs = new LinkedBlockingQueue<>();
     private boolean isStopped = false;
     private int numberOfLegs;
-    private AtomicInteger legId = new AtomicInteger();
+    private AtomicInteger legId = new AtomicInteger(0);
     private AtomicInteger stepsCounter = new AtomicInteger(0);
     private volatile double distanceCounter = 0;
     private volatile double goalDistance = 0;
@@ -46,6 +48,10 @@ public class Robot extends Thread {
 
     @Override
     public void run() {
+
+        String runMessage = String.format("Robot start's moving with %d leg's for distance %f metres", numberOfLegs, goalDistance);
+        System.out.println(runMessage);
+        controlPanel.addLineToMainScreen(runMessage);
 
         if (goalDistance == 0 | numberOfLegs == 0) {
             stopMoving();
@@ -81,7 +87,9 @@ public class Robot extends Thread {
         }
 
         printStatus();
-        controlPanel.dispose();
+        controlPanel.addLineToMainScreen("Stop moving!");
+        controlPanel.addLineToMainScreen(getStatus());
+        //controlPanel.dispose();
     }
 
     public String getStatus() {
@@ -115,7 +123,6 @@ public class Robot extends Thread {
         double randomValue = RANGE_MIN + (RANGE_MAX - RANGE_MIN) * r.nextDouble();
         return randomValue;
     }
-
 
     public void stopMoving() {
 
