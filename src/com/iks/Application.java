@@ -12,11 +12,11 @@ public class Application {
 
         System.out.println("Create robot...");
 
-        Robot robot = new Robot(5, 12);
+        Robot robot = new Robot(3, 30);
         ControlPanel controlPanel = new ControlPanel(robot);
         robot.setControlPanel(controlPanel);
 
-        TimeUnit.SECONDS.sleep(2);
+        /*TimeUnit.SECONDS.sleep(1);*/
         System.out.println("Start moving!");
         robot.start();
 

@@ -12,12 +12,13 @@ import java.awt.event.ActionListener;
 public class ControlPanel extends JFrame implements ActionListener{
 
     private Robot robot;
+    private JTextArea mainScreen;
 
     public ControlPanel(Robot robot) throws HeadlessException {
         super("Control panel");
         this.robot = robot;
 
-        setSize(350, 200);
+        setSize(800, 600);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setLayout(new BorderLayout());
 
@@ -30,15 +31,20 @@ public class ControlPanel extends JFrame implements ActionListener{
         JButton statusButton = new JButton("Status");
         statusButton.addActionListener(this);
         statusButton.setActionCommand("status");
-
-        JLabel label = new JLabel("Robot's control panel");
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-
         JPanel panelButton = new JPanel();
         panelButton.add(addButton);
         panelButton.add(removeButton);
         panelButton.add(statusButton);
 
+        JLabel label = new JLabel("Robot's control panel");
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+
+        mainScreen = new JTextArea();
+        mainScreen.setBackground(Color.BLACK);
+        mainScreen.setForeground(Color.YELLOW);
+        mainScreen.setFont(new Font("Arial", Font.BOLD, 12));
+
+        add(mainScreen, BorderLayout.CENTER);
         add(panelButton, BorderLayout.SOUTH);
         add(label, BorderLayout.NORTH);
 
@@ -53,8 +59,22 @@ public class ControlPanel extends JFrame implements ActionListener{
                 robot.printStatus();
                 break;
             }
+            case "addLeg": {
+                robot.addLeg();
+                break;
+            }
+            case "removeLeg":{
+                robot.removeLeg();
+                break;
+            }
         }
 
+
+    }
+
+    public void addLineToMainScreen(String line){
+
+        mainScreen.append(line + "\n");
 
     }
 }

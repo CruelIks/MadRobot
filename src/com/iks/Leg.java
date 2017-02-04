@@ -44,7 +44,7 @@ public class Leg implements Runnable {
 
     public void setInterrupted() {
         isInterrupted = true;
-        thread.interrupt();
+        //thread.interrupt();
     }
 
 
