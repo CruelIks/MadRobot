@@ -41,7 +41,7 @@ public class Robot extends Thread {
 
     public void addLeg() {
 
-        legs.add(new Leg(legId.incrementAndGet(), this));
+        legs.offer(new Leg(legId.incrementAndGet(), this));
         numberOfLegs++;
 
     }
@@ -118,10 +118,9 @@ public class Robot extends Thread {
 
     }
 
-    private double getRandomStepLength() {
+    public double getRandomStepLength() {
         Random r = new Random();
-        double randomValue = RANGE_MIN + (RANGE_MAX - RANGE_MIN) * r.nextDouble();
-        return randomValue;
+        return RANGE_MIN + (RANGE_MAX - RANGE_MIN) * r.nextDouble();
     }
 
     public void stopMoving() {
@@ -134,5 +133,19 @@ public class Robot extends Thread {
         interrupt();
     }
 
+    public int getNumberOfLegs() {
+        return numberOfLegs;
+    }
 
+    public LinkedBlockingQueue<Leg> getLegs() {
+        return legs;
+    }
+
+    public AtomicInteger getStepsCounter() {
+        return stepsCounter;
+    }
+
+    public double getDistanceCounter() {
+        return distanceCounter;
+    }
 }

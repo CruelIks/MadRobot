@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  *
  * @author Kirill Ivanov
  */
-public class ControlPanel extends JFrame implements ActionListener{
+public class ControlPanel extends JFrame implements ActionListener {
 
     private Robot robot;
     private JTextArea mainScreen;
@@ -19,6 +19,10 @@ public class ControlPanel extends JFrame implements ActionListener{
         super("Control panel");
         this.robot = robot;
 
+        initForm();
+    }
+
+    public void initForm() {
         setSize(800, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -55,7 +59,7 @@ public class ControlPanel extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        switch (e.getActionCommand()){
+        switch (e.getActionCommand()) {
             case "status": {
                 robot.printStatus();
                 break;
@@ -64,7 +68,7 @@ public class ControlPanel extends JFrame implements ActionListener{
                 robot.addLeg();
                 break;
             }
-            case "removeLeg":{
+            case "removeLeg": {
                 robot.removeLeg();
                 break;
             }
@@ -73,7 +77,7 @@ public class ControlPanel extends JFrame implements ActionListener{
 
     }
 
-    public void addLineToMainScreen(String line){
+    public void addLineToMainScreen(String line) {
 
         mainScreen.append(line + "\n");
 

@@ -14,7 +14,7 @@ public class Application {
         try
         {
             int countLegs = Integer.parseInt(args[0]);
-            int totalDistance = Integer.parseInt(args[1]);
+            double totalDistance = Double.parseDouble(args[1]);
 
             robot = new Robot(countLegs, totalDistance);
         }
