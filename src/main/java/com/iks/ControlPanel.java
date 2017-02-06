@@ -48,8 +48,11 @@ public class ControlPanel extends JFrame implements ActionListener {
         mainScreen.setBackground(Color.BLACK);
         mainScreen.setForeground(Color.YELLOW);
         mainScreen.setFont(new Font("Arial", Font.BOLD, 12));
+        mainScreen.setEditable(false);
+        JScrollPane scroll = new JScrollPane(mainScreen);
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        add(mainScreen, BorderLayout.CENTER);
+        add(scroll, BorderLayout.CENTER);
         add(panelButton, BorderLayout.SOUTH);
         add(label, BorderLayout.NORTH);
 
